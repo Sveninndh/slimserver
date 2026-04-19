@@ -5,24 +5,33 @@
 
 	<li>New Features:</li>
 	<ul>
-		<li></li>
+		<li><a href="https://github.com/LMS-Community/slimserver/issues/1286">#1286</a> - Display album cover for AudioAddict stations (inspired by some work by @mcduman)</li>
+		<li><a href="https://github.com/LMS-Community/slimserver/pull/1541">#1541</a> - Add per-player timezone support: players can now display date and time, and fire alarms, in their own timezone rather than the server's. (@boudekerk)</li>
+		<li><a href="https://github.com/LMS-Community/slimserver/pull/1546">#1546</a> - Add "Default Adjustment for Local Tracks" player option. (@SamInPgh)</li>
 	</ul>
 	<br />
 
 	<li>Server Changes:</li>
 	<ul>
-		<li></li>
+		<li>More aggressively cache DNS lookups, re-use cached data even if expired, but if lookup fails.</li>
+		<li><a href="https://github.com/LMS-Community/slimserver/pull/1548">#1548</a> - Updated Czech translation (@mipa87)</li>
+		<li><a href="https://github.com/LMS-Community/slimserver/pull/1549">#1549</a> - Update CODE2000 font to 1.176 (@mipa87)</li>
+		<li><a href="https://github.com/LMS-Community/slimserver/pull/1550">#1550</a> - Update wizard plugin JSON encoding to use UTF-8 for HTML templates (@mipa87)</li>
 	</ul>
 	<br />
 
 	<li>Platform Support:</li>
 	<ul>
-		<li></li>
+		<li>Improve SSL support for Windows and macOS builds, updating Mozilla::CA to the latest version.</li>
 	</ul>
 	<br />
 
 	<li>Bug Fixes:</li>
 	<ul>
+		<li><a href="https://github.com/LMS-Community/slimserver/pull/1517">#1517</a> - Fix work images and artwork precaching (@darrell-k)</li>
+		<li><a href="https://github.com/LMS-Community/slimserver/pull/1553">#1553</a> - Allow plugins to shut down before closing the database (@SamInPgh)</li>
+		<li><a href="https://github.com/LMS-Community/slimserver/issues/1555">#1555</a> - Scanner: stop-gap to prevent contributor row poisoning when the MusicBrainz ID count does not match the artist name count. (@Rouzax)</li>
+		<li><a href="https://github.com/LMS-Community/slimserver/pull/1558">#1558</a> - Add album link for imported remote tracks (@SamInPgh)</li>
 		<li></li>
 	</ul>
 	<br />
@@ -45,7 +54,7 @@
 
 	<li>Server Changes:</li>
 	<ul>
-		<li></li>
+		<li>Enable caching for radio artwork lookups.</li>
 	</ul>
 	<br />
 
@@ -57,7 +66,11 @@
 
 	<li>Bug Fixes:</li>
 	<ul>
-		<li></li>
+		<li>Some radio streams would redirect to web page when using a "Mozilla" user agent string.</li>
+		<li>Fix software update check for Debian on i686 and older systems.</li>
+		<li>Fix scheduling scans to run at midnight.</li>
+		<li><a href="https://github.com/LMS-Community/slimserver/pull/1527">#1527</a> - YAML::XS would turn booleans into read-only values on Perl 5.42</li>
+		<li><a href="https://github.com/LMS-Community/slimserver/pull/1528">#1528</a> - Fix FLAC to MP3 transcoding for mono tracks (@jbylsma)</li>
 	</ul>
 	<br />
 

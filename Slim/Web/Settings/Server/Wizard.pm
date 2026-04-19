@@ -205,15 +205,17 @@ sub handler {
 	$paramRef->{debug} = main::DEBUGLOG && $log->is_debug;
 
 	my $wzData = {};
-	foreach (catfile($Bin, 'HTML'), Slim::Utils::OSDetect::dirsFor('HTML')) {
+	foreach (Slim::Utils::Misc::uniq(catfile($Bin, 'HTML'), Slim::Utils::OSDetect::dirsFor('HTML'))) {
 		my $path = catfile($_, 'EN', 'settings', 'wizard.json');
 		if (-f $path) {
 			$wzData = from_json(read_file($path));
+			last if keys %$wzData; # stop if we got data, otherwise try next path
 		}
 	}
 
 	$paramRef->{plugins} = $wzData->{plugins};
-	$paramRef->{pluginsJSON} = to_json($paramRef->{plugins});
+	# use utf8(0) to get Unicode string instead of UTF-8 bytes for HTML template
+	$paramRef->{pluginsJSON} = JSON::XS->new->utf8(0)->encode($wzData->{plugins});
 
 	$serverPrefs->set('dontTriggerScanOnPrefChange', $scanOnChange) if $scanOnChange;
 
